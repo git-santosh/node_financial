@@ -28,6 +28,15 @@ module.exports = {
 				customer:customer
 			});
 		});
+	},
+	index:function(req,res,next){
+		Customer.find(function foundCustomer(err,customer){
+			if(err) return next(err);
+
+			res.view({
+				customers:customer
+			})
+		});
 	}
 };
 
